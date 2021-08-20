@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\xedux\Desktop\trabalho\Banco-de-Dados_alura\.metadata\.plugins\org.eclipse.jdt.core
+4140921228.index
+4129625832.index
