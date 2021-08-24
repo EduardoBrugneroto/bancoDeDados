@@ -5,6 +5,9 @@
     <fullyQualifiedTypeName name="br.com.alura.banco.main"/>
     <fullyQualifiedTypeName name="com.sun.java.swing.action.NextAction"/>
     <fullyQualifiedTypeName name="br.com.alura.banco.connectionFactory"/>
+    <fullyQualifiedTypeName name="br.com.alura.banco.ConnectionFactory"/>
     <fullyQualifiedTypeName name="java.sql.Connection"/>
     <fullyQualifiedTypeName name="java.sql.Statement"/>
+    <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+    <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
 </qualifiedTypeNameHistroy>
