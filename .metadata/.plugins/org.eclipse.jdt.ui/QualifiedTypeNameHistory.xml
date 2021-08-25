@@ -10,4 +10,7 @@
     <fullyQualifiedTypeName name="java.sql.Statement"/>
     <fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
     <fullyQualifiedTypeName name="java.lang.RuntimeException"/>
+    <fullyQualifiedTypeName name="java.lang.Exception"/>
+    <fullyQualifiedTypeName name="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+    <fullyQualifiedTypeName name="javax.sql.DataSource"/>
 </qualifiedTypeNameHistroy>

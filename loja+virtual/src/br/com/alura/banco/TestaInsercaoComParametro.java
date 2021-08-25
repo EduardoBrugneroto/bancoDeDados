@@ -12,42 +12,38 @@ public class TestaInsercaoComParametro {
 		String descricao = "";
 
 		ConnectionFactory connectionFactory = new ConnectionFactory();
-		Connection connection = connectionFactory.recuperaConexao();
-		connection.setAutoCommit(false);
-		try {
-			PreparedStatement stm = connection.prepareStatement("INSERT INTO PRODUTO (nome, descricao) VALUES (?,?)",
-					Statement.RETURN_GENERATED_KEYS);
-			adicionaVariavel("SmartTV", "Televisão Smart de 90Polegadas" , stm);
-			adicionaVariavel("Radio", "Radio de Bateria", stm);
-			
-			connection.commit();
-			
-			stm.close();
-			connection.close();
-			
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("ROLLBACK EXECUTADO");
-			connection.rollback();
+		try (Connection connection = connectionFactory.recuperaConexao();) {
+			connection.setAutoCommit(false);
+			try (PreparedStatement stm = connection.prepareStatement(
+					"INSERT INTO PRODUTO (nome, descricao) VALUES (?,?)", Statement.RETURN_GENERATED_KEYS);) {
+				adicionaVariavel("SmartTV", "Televisão Smart de 90Polegadas", stm);
+				adicionaVariavel("Radio", "Radio de Bateria", stm);
+
+				connection.commit();
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				System.out.println("ROLLBACK EXECUTADO");
+				connection.rollback();
+			}
 		}
 	}
 
 	private static void adicionaVariavel(String nome, String descricao, PreparedStatement stm) throws SQLException {
 		stm.setString(1, nome);
 		stm.setString(2, descricao);
-	
-		if(nome.equals("Radio")) {
+
+		if (nome.equals("Radio")) {
 			throw new RuntimeException("Não foi possivel adicionar o Produto");
 		}
-		
+
 		stm.execute();
 
-		ResultSet rst = stm.getGeneratedKeys();
-
-		while (rst.next()) {
-			Integer id = rst.getInt(1);
-			System.out.println("O valor do novo id é " + id);
+		try (ResultSet rst = stm.getGeneratedKeys();) {
+			while (rst.next()) {
+				Integer id = rst.getInt(1);
+				System.out.println("O valor do novo id é " + id);
+			}
 		}
-		rst.close();
 	}
 }
