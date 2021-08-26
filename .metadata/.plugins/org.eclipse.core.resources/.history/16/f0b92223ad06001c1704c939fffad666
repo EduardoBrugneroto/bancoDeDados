@@ -1,0 +1,19 @@
+package br.com.alura.banco;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
+public class TestaInsecaoComProduto {
+
+	public static void main(String[] args) throws SQLException {
+		Produto produto = new Produto("Iphone", "Iphone 7 128gb");
+
+		try (Connection connetion = new ConnectionFactory().recuperaConexao()) {
+			PersistenciaProduro persistenciaProduro = new PersistenciaProduro(connetion);
+			persistenciaProduro.salvarProduto(produto);
+			//Lista = persistenciaProduto.listar();
+		}
+		
+	}
+
+}

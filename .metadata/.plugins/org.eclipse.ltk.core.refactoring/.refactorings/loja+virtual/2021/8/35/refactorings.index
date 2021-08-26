@@ -1,3 +1,9 @@
 1629720141192	Extract method 'adicionaVariavel'
 1629920210677	Rename type 'main'
 1629920226444	Rename type 'testeListagem'
+1630008503267	Rename compilation unit 'PesistenciaProduro.java'
+1630010123056	Rename type 'PersistenciaProduro'
+1630010295489	Move compilation unit
+1630011635505	Rename type 'TestaInsecaoComProduto'
+1630011743266	Rename type 'TestaInsecaoEListagemComProduto'
+1630011793407	Rename type 'TestaInsecaoComProduto'

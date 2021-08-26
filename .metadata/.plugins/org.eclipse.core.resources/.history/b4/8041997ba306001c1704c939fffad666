@@ -1,0 +1,9 @@
+package br.com.alura.banco;
+
+public class Produto {
+	private Integer id;
+	private Integer nome;
+	private Integer descricao;
+	
+	
+}
